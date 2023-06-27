@@ -1,0 +1,93 @@
+.commentSection {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.commentWrapper {
+  display: flex;
+  justify-self: flex-start;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.writeComment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  flex: 6;
+  margin-left: 20px;
+}
+
+.userComment {
+  flex: 6;
+  height: 300px;
+  margin-bottom: 50px;
+}
+
+.overflow {
+  overflow-y: scroll;
+}
+
+textarea {
+  width: 100%;
+  height: 90px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 18px;
+  resize: none;
+  outline: none;
+  border: none;
+  background-color: rgb(243, 240, 240);
+}
+
+.submitButtonComment {
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: rgba(66, 184, 131, 0.6);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin-top: 10px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.comment {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  margin: 20px 0px 5px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  min-width: 20px;
+  width: 400px;
+  background-color: rgb(243, 240, 240);
+}
+
+.avataUserComment {
+  margin-right: 10px;
+}
+
+.submitButtonComment:hover {
+  background-color: rgba(20, 189, 113, 0.6);
+}
+
+.submitButtonComment:active {
+  background-color: rgba(117, 216, 172, 0.6);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(4px);
+}
+
+.submitButtonCommentDisabled {
+  pointer-events: none;
+  background-color: #c2bebc;
+}

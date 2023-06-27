@@ -1,0 +1,110 @@
+.createPost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createPostWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding: 50px;
+  margin-top: 40px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 8px;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+}
+
+.createPostForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createPostImg {
+  border-radius: 10px;
+  object-fit: cover;
+  width: 500px;
+  height: 400px;
+}
+
+.createPostFormGroup {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-left: 40px;
+}
+
+.userAction {
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.createPostIcon {
+  width: 25px;
+  height: 25px;
+  font-size: 20px;
+  border: 1px solid;
+  border-radius: 50%;
+  color: rgb(129, 125, 125);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.createPostInput {
+  font-size: 30px;
+  padding: 20px;
+  margin-bottom: 15px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.createPostInput::placeholder {
+  color: rgb(189, 185, 185);
+  font-weight: 400;
+}
+
+.createPostInput:focus {
+  outline-style: none;
+}
+
+.createPostText {
+  font-family: inherit;
+  font-size: 20px;
+}
+
+.createPostSubmit {
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: rgba(66, 184, 131, 0.6);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin-top: 10px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-left: 10px;
+}
+
+.createPostSubmit:hover {
+  background-color: rgba(10, 202, 116, 0.6);
+}
+
+.createPostSubmit:active {
+  background-color: rgba(100, 225, 169, 0.6);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(4px);
+}
