@@ -16,6 +16,9 @@
   "main": "index.js",
   "type": "module",
   "devDependencies": {},
+  "engines": {
+    "node": ">=14 <15"
+  }
   "scripts": {
     "start": "nodemon --inspect index.js"
   },
