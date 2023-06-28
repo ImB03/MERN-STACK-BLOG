@@ -6,6 +6,7 @@
   align-content: flex-start;
   justify-content: center;
   /* flex-direction: column; */
+  background-color: #f5f5f5;
 }
 
 .iconLoading {
@@ -13,5 +14,4 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  
 }
