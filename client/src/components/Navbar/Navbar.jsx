@@ -15,12 +15,13 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [showDropdown, setShowDropdown] = useState(false);
+  const [collapse, setCollapse] = useState(false);
   const [search, setSearch] = useState("");
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
   const itemsDropdown = [
-    { id: 1, name: "Profile", to: "/userprofile" },
-    { id: 2, name: "Logout", to: "/auth" },
+    { id: 1, name: "YOUR PROFILE", to: "/userprofile" },
+    { id: 2, name: "LOGOUT", to: "/auth" },
   ];
 
   const handleLogout = (e) => {
@@ -65,120 +66,204 @@ export default function Navbar() {
   };
 
   return (
-    // <div className="navbar">
-    //   <div className="navbarLeft">        <div className="navbarList">
-    //       <div className="search-box">
-    //         <input
-    //           type="search"
-    //           name="search"
-    //           onKeyDown={handleKeyPress}
-    //           placeholder="Search anything"
-    //           value={search}
-    //           className="search-input"
-    //           onChange={(e) => setSearch(e.target.value)}
-    //         />
-    //         <div onClick={searchPost} className="search-btn">
-    //           <i className="fas fa-search"></i>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <div className="navbarCenter">
-    //     <ul className="navbarList">
-    //       <li className="navbarListItem">
-    //         <NavLink
-    //           className={({ isActive }) =>
-    //             isActive ? "isActive link" : "link"
-    //           }
-    //           to="/"
-    //         >
-    //           HOME
-    //         </NavLink>
-    //       </li>
-    //       {user && (
-    //         <li className="navbarListItem">
-    //           <NavLink
-    //             className={({ isActive }) =>
-    //               isActive ? "isActive link" : "link"
-    //             }
-    //             to="/createpost"
-    //           >
-    //             CREATE POST
-    //           </NavLink>
-    //         </li>
-    //       )}
-    //     </ul>
-    //   </div>
+    <div className="nav d-flex justify-content-center align-items-center position-sticky">
+      <div className="container-fluid">
+        <div className="row d-flex justify-content-between align-items-center">
+          <div className="col d-flex justify-content-start align-items-center d-sm-none">
+            <Link to="/">
+              <img
+                className="navbarLogo"
+                src="https://www.freepnglogos.com/uploads/nature-png/nature-rays-logo-inspiration-17.png"
+                alt=""
+              />
+            </Link>
+          </div>
+          <div className="col d-none d-sm-flex justify-content-start align-items-center position-relative">
+            {/* <div className="search-box">
+              <input
+                type="search"
+                name="search"
+                onKeyDown={handleKeyPress}
+                placeholder="Search anything"
+                value={search}
+                className="search-input"
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <div onClick={searchPost} className="search-btn">
+                <i className="fas fa-search"></i>
+              </div>
+            </div> */}
 
-    //   <div className="navbarRight">
-    //     <div className="navbarList">
-    //       {user && (
-    //         <div className="navbarListItem">
-    //           <Avatar
-    //             className={classes.userAvata}
-    //             alt=""
-    //             src={user?.result.imageUrl}
-    //             onClick={() => setShowDropdown(!showDropdown)}
-    //           >
-    //             {user?.result.name.charAt(0).toUpperCase()}
-    //           </Avatar>
-    //         </div>
-    //       )}
-    //       {showDropdown && (
-    //         <div className="navbarListItem">
-    //           <div className="navbarDropdown">
-    //             {itemsDropdown.map((item) => (
-    //               <NavLink
-    //                 key={item.id}
-    //                 to={item.to}
-    //                 className="navbarItemDropdown link"
-    //                 onClick={() => {
-    //                   setShowDropdown(false);
-    //                   if (user && item.name === "Logout") {
-    //                     handleLogout();
-    //                   }
-    //                 }}
-    //               >
-    //                 {item.name}
-    //               </NavLink>
-    //             ))}
-    //           </div>
-    //         </div>
-    //       )}
-    //     </div>
-    //     {!user && location.pathname !== "/auth" ? (
-    //       <div className="navbarList">
-    //         <div className="navbarListItem">
-    //           <NavLink className="link" to="/auth">
-    //             LOGIN
-    //           </NavLink>
-    //         </div>
-    //       </div>
-    //     ) : null}
-    //   </div>
-    // </div>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
+            <div className="search-box">
+              <input
+                type="search"
+                className="search-txt"
+                name="search"
+                value={search}
+                placeholder="Search anything"
+                onKeyDown={handleKeyPress}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <div onClick={searchPost} className="search-btn">
+                <i className="fas fa-search" name="search-outline"></i>
+              </div>
+            </div>
+          </div>
+          <div className="col d-none d-lg-flex justify-content-center align-items-center">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "isActive link m-3" : "link m-3"
+              }
+              to="/"
+            >
+              HOME
+            </NavLink>
+
+            {user && (
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "isActive link" : "link"
+                }
+                to="/createpost"
+              >
+                CREATE BLOG
+              </NavLink>
+            )}
+          </div>
+          <div className="col d-flex justify-content-end align-items-center d-lg-none">
+            <div
+              className="navbarIconBar d-flex justify-content-center align-items-center"
+              onClick={() => setCollapse(!collapse)}
+            >
+              <i className="fa-solid fa-bars"></i>
+            </div>
+          </div>
+          <div className="col d-none d-lg-flex justify-content-end align-items-center position-relative">
+            {user && (
+              <Avatar
+                className={classes.userAvata}
+                alt=""
+                src={user?.result.imageUrl}
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                {user?.result.name.charAt(0).toUpperCase()}
+              </Avatar>
+            )}
+            {showDropdown && (
+              <div className="navbarDropdown container position-absolute">
+                <div className="row p-2 d-flex flex-column justify-content-start align-items-center">
+                  {itemsDropdown.map((item) => (
+                    <div className="col p-2 navbarItemDropdown">
+                      <Link
+                        key={item.id}
+                        to={item.to}
+                        className="link"
+                        onClick={() => {
+                          setShowDropdown(false);
+                          if (user && item.name === "LOGOUT") {
+                            handleLogout();
+                          }
+                        }}
+                      >
+                        {item.name}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {!user && location.pathname !== "/auth" ? (
+              <Link className="link" to="/auth">
+                LOGIN
+              </Link>
+            ) : null}
+          </div>
+        </div>
+      </div>
+      <div
+        className={`navbarCollapse position-absolute ${
+          !collapse ? "d-none" : ""
+        } d-lg-none`}
+      >
+        <div className="container-fluid">
+          <div className="row d-flex flex-column">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `col p-2 navbarCollapseItem ${isActive && "isActive"} link`
+              }
+            >
+              HOME
+            </NavLink>
+            {user && (
+              <NavLink
+                to="/createpost"
+                className={({ isActive }) =>
+                  `col p-2 navbarCollapseItem ${isActive && "isActive"} link`
+                }
+              >
+                CREATE BLOG
+              </NavLink>
+            )}
+            {user && (
+              <NavLink
+                to="/userprofile"
+                className={({ isActive }) =>
+                  `col p-2 navbarCollapseItem ${isActive && "isActive"} link`
+                }
+              >
+                YOUR PROFILE
+              </NavLink>
+            )}
+            <div className="col p-2 navbarCollapseItem d-flex d-sm-none">
+              <input
+                className="form-control me-2"
+                type="search"
+                name="search"
+                value={search}
+                placeholder="Search anything"
+                onKeyDown={handleKeyPress}
+                onChange={(e) => setSearch(e.target.value)}
+                aria-label="Search"
+              />
+              <button
+                onClick={searchPost}
+                className="btn btn-outline-success"
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
+            {location.pathname !== "/auth" && (
+              <div className="col">
+                <hr />
+              </div>
+            )}
+            {!user && location.pathname !== "/auth" ? (
+              <Link
+                onClick={() => setCollapse(false)}
+                to="/auth"
+                className="col p-2 navbarCollapseItem link"
+              >
+                LOGIN
+              </Link>
+            ) : null}
+            {user && (
+              <Link
+                to="/auth"
+                className="col p-2 navbarCollapseItem link"
+                onClick={() => {
+                  setCollapse(false);
+                  setShowDropdown(false);
+                  handleLogout();
+                }}
+              >
+                LOGOUT
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</nav>  );
+  );
 }
