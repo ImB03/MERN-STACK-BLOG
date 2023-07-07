@@ -62,75 +62,92 @@ export default function Auth() {
   // };
   return (
     // <GoogleOAuthProvider clientId="704165309298-0us5tndt4om8is0gbi0iv3ej44u4ckbh.apps.googleusercontent.com">
-      <div className="auth">
-        <span className="authTitle">{isSignup ? "Sign Up" : "Sign In"}</span>
-        <form className="authForm" onSubmit={handleSubmit}>
-          {isSignup && (
-            <>
-              <label>First Name:</label>
-              <input
-                name="firstName"
-                className="authInput"
-                type="text"
-                placeholder="Enter your first name..."
-                onChange={handleChange}
-              />
-              <label>Last Name:</label>
-              <input
-                name="lastName"
-                className="authInput"
-                type="text"
-                placeholder="Enter your last name..."
-                onChange={handleChange}
-              />
-            </>
-          )}
-          <label>Email:</label>
-          <input
-            name="email"
-            className="authInput"
-            type="email"
-            placeholder="Enter your email..."
-            onChange={handleChange}
-          />
-          <label>Password:</label>
-          <input
-            name="password"
-            className="authInput"
-            type="password"
-            placeholder="Enter your password..."
-            onChange={handleChange}
-          />
-          {isSignup && (
-            <>
-              <label>Confirm Password:</label>
-              <input
-                name="confirmPassword"
-                className="authInput"
-                type="password"
-                placeholder="Enter your password..."
-                onChange={handleChange}
-              />
-            </>
-          )}
-          <button className="authButton" type="submit">
-            {isSignup ? "Sign Up" : "Sign In"}
-          </button>
-          {/* {!isSignup && (
-            <GoogleLogin
-              onSuccess={googleSuccess}
-              onError={googleError}
-              className="authGoogleButton"
-              cookiePolicy="single_host_origin"
-            />
-          )} */}
-          <div onClick={switchMode}>
-            {isSignup
-              ? "Already have an account? Sign In!"
-              : "Don't have an account? Sign Up!"}
+    <div className="auth">
+      <div className="container">
+        <div className="row d-flex flex-column justify-content-center align-items-center pt-5">
+          <div className="col d-flex justify-content-center align-items-center">
+            <span className="authTitle">
+              {isSignup ? "Sign Up" : "Sign In"}
+            </span>
           </div>
-        </form>
+          <div className="col d-flex justify-content-center align-items-center">
+            <form className="authForm" onSubmit={handleSubmit}>
+              <div className="container">
+                <div className="row mt-4 d-flex flex-column justify-content-center align-items-center">
+                  {isSignup && (
+                    <div className="col mt-2 mb-2 d-flex justify-content-center align-items-center">
+                      <input
+                        name="firstName"
+                        className="authInput p-3 me-2"
+                        type="text"
+                        placeholder="Enter your first name..."
+                        onChange={handleChange}
+                      />
+                      <input
+                        name="lastName"
+                        className="authInput p-3 ms-2"
+                        type="text"
+                        placeholder="Enter your last name..."
+                        onChange={handleChange}
+                      />
+                    </div>
+                  )}
+                  <div className="col mt-2 mb-2  d-flex justify-content-center align-items-center">
+                    <input
+                      name="email"
+                      className="authInput p-3"
+                      type="email"
+                      placeholder="Enter your email..."
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="col mt-2 mb-2  d-flex justify-content-center align-items-center">
+                    <input
+                      name="password"
+                      className="authInput p-3"
+                      type="password"
+                      placeholder="Enter your password..."
+                      onChange={handleChange}
+                    />
+                  </div>
+                  {isSignup && (
+                    <div className="col mt-2 mb-2  d-flex justify-content-center align-items-center">
+                      <input
+                        name="confirmPassword"
+                        className="authInput p-3"
+                        type="password"
+                        placeholder="Enter your password..."
+                        onChange={handleChange}
+                      />
+                    </div>
+                  )}
+                  <div className="col mt-2 d-flex justify-content-center align-items-center">
+                    <button className="authButton pt-2 pb-2" type="submit">
+                      {isSignup ? "Sign Up" : "Sign In"}
+                    </button>
+                  </div>
+                  {/* {!isSignup && (
+                      <GoogleLogin
+                        onSuccess={googleSuccess}
+                        onError={googleError}
+                        className="authGoogleButton"
+                        cookiePolicy="single_host_origin"
+                      />
+                    )} */}
+                  <div className="col mt-3 d-flex justify-content-center align-items-center">
+                    <div onClick={switchMode} className="text-center">
+                      {isSignup
+                        ? "Already have an account? Sign In!"
+                        : "Don't have an account? Sign Up!"}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
+    </div>
     // </GoogleOAuthProvider>
   );
 }

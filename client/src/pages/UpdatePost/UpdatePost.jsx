@@ -34,6 +34,7 @@ export default function CreatePost() {
         infoUpdatePost: { ...infoUpdatePost, name: user?.result?.name },
       })
     );
+    navigate("/");
   };
 
   const handleChange = (e) => {

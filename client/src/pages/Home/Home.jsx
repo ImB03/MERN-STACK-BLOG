@@ -7,6 +7,7 @@ import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Posts from "../../components/Posts/Posts";
 import { ACTION_FETCH_ALL_POSTS } from "../../reducers/Slice/postSlice";
+import Paginate from "../../components/Pagination/Pagination";
 
 export default function Home() {
   const location = useLocation();
@@ -24,12 +25,27 @@ export default function Home() {
   }, [location]);
 
   return (
-    <>
-      <Header />
-      <div className="home">
-        <Posts posts={posts} isLoading={isLoading} />
-        <Sidebar page={page} />
+    <div className="home">
+      <div className="container-fluid">
+        <div className="row d-flex flex-column justify-content-center align-items-center">
+          <div className="col">
+            <Header />
+          </div>
+          <div className="col mt-4">
+            <Paginate />
+          </div>
+          <div className="col">
+            <div className="row">
+              <div className="col-8">
+                <Posts posts={posts} isLoading={isLoading} />
+              </div>
+              <div className="col-4">
+                <Sidebar page={page} />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 }

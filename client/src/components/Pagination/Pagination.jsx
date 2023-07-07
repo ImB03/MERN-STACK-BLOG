@@ -30,9 +30,11 @@ const Paginate = () => {
       nextLabel={">"}
       pageCount={numberOfPages}
       onPageChange={handleChangePage}
-      containerClassName={"paginationBttns"}
-      previousLinkClassName={"previousBttn"}
-      nextLinkClassName={"nextBttn"}
+      containerClassName={
+        "paginationBttns d-flex justify-content-center align-items-center"
+      }
+      previousLinkClassName={"previousBttn link"}
+      nextLinkClassName={"nextBttn link"}
       disabledClassName={isLoading ? "" : "paginationDisabled"}
       activeClassName={"paginationActive"}
     />

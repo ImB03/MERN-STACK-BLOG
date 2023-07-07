@@ -47,7 +47,7 @@ export default function Navbar() {
     }
 
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, [location, user]);
+  }, [location]);
 
   const searchPost = () => {
     if (
@@ -79,21 +79,6 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="col d-none d-sm-flex justify-content-start align-items-center position-relative">
-            {/* <div className="search-box">
-              <input
-                type="search"
-                name="search"
-                onKeyDown={handleKeyPress}
-                placeholder="Search anything"
-                value={search}
-                className="search-input"
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <div onClick={searchPost} className="search-btn">
-                <i className="fas fa-search"></i>
-              </div>
-            </div> */}
-
             <div className="search-box">
               <input
                 type="search"
@@ -153,9 +138,8 @@ export default function Navbar() {
               <div className="navbarDropdown container position-absolute">
                 <div className="row p-2 d-flex flex-column justify-content-start align-items-center">
                   {itemsDropdown.map((item) => (
-                    <div className="col p-2 navbarItemDropdown">
+                    <div key={item.id} className="col p-2 navbarItemDropdown">
                       <Link
-                        key={item.id}
                         to={item.to}
                         className="link"
                         onClick={() => {
@@ -181,7 +165,7 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className={`navbarCollapse position-absolute ${
+        className={`navbarCollapse p-5 position-absolute ${
           !collapse ? "d-none" : ""
         } d-lg-none`}
       >

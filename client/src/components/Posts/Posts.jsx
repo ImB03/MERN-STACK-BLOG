@@ -8,15 +8,24 @@ export default function Posts({ posts, isLoading }) {
   return (
     <div className="posts">
       {isLoading ? (
-        <div className="iconLoading">
-          <h1>
-            <i className="fa fa-circle-o-notch fa-spin"></i>
-          </h1>
+        <div className="iconLoading d-flex justify-content-center align-items-center">
+          <i className="fa fa-circle-o-notch fa-spin"></i>
         </div>
       ) : posts?.length === 0 ? (
-        <h1>'Post not exit'</h1>
+        <h1 className="d-flex justify-content-center align-items-center">
+          'Blog not exit'
+        </h1>
       ) : (
-        posts.map((post) => <Post key={post._id} post={post} />)
+        <div className="row">
+          {posts.map((post) => (
+            <div
+              key={post._id}
+              className="col d-flex justify-content-start align-items-center"
+            >
+              <Post post={post} />
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
