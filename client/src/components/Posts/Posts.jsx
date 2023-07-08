@@ -6,7 +6,7 @@ import Post from "../Post/Post";
 
 export default function Posts({ posts, isLoading }) {
   return (
-    <div className="posts row-lg col d-flex flex-wrap justify-content-center align-items-center">
+    <div className="posts col d-flex flex-wrap justify-content-center align-items-center">
       {isLoading ? (
         <div className="iconLoading d-flex justify-content-center align-items-center">
           <i className="fa fa-circle-o-notch fa-spin"></i>
@@ -19,7 +19,7 @@ export default function Posts({ posts, isLoading }) {
         posts.map((post) => (
           <div
             key={post._id}
-            className="col-lg row m-3 d-flex justify-content-center align-items-center"
+            className="row m-3 d-flex justify-content-center align-items-center"
           >
             <Post post={post} />
           </div>
