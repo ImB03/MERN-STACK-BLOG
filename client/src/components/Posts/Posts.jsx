@@ -6,7 +6,7 @@ import Post from "../Post/Post";
 
 export default function Posts({ posts, isLoading }) {
   return (
-    <div className="posts">
+    <div className="posts row d-flex flex-wrap justify-content-center align-items-center">
       {isLoading ? (
         <div className="iconLoading d-flex justify-content-center align-items-center">
           <i className="fa fa-circle-o-notch fa-spin"></i>
@@ -16,16 +16,14 @@ export default function Posts({ posts, isLoading }) {
           'Blog not exit'
         </h1>
       ) : (
-        <div className="row">
-          {posts.map((post) => (
-            <div
-              key={post._id}
-              className="col d-flex justify-content-start align-items-center"
-            >
-              <Post post={post} />
-            </div>
-          ))}
-        </div>
+        posts.map((post) => (
+          <div
+            key={post._id}
+            className="col m-3 d-flex justify-content-center align-items-center"
+          >
+            <Post post={post} />
+          </div>
+        ))
       )}
     </div>
   );

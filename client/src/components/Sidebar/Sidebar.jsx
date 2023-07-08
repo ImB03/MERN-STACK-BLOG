@@ -8,11 +8,8 @@ export default function Sidebar() {
   const isLoading = useSelector((state) => state.posts.isLoading);
 
   return (
-    <div className="sidebar">
-      <div className="sidebarItem">
-        <Paginate />
-      </div>
-      <div className="sidebarItem">
+    <div className="sidebar row d-flex flex-column justify-content-center align-items-center">
+      <div className="sidebarItem col d-flex flex-column justify-content-center align-items-center">
         <span className="sidebarTitle">ABOUT ME</span>
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsEiSPA_ugNLTHaJzZNEJuZ11VHyTW7snsIg&usqp=CAU"
@@ -25,9 +22,9 @@ export default function Sidebar() {
           dicta?
         </p>
       </div>
-      <div className="sidebarItem">
+      <div className="sidebarItem col d-flex flex-column justify-content-center align-items-center">
         <span className="sidebarTitle">FOLLOW US</span>
-        <div className="sidebarSocial">
+        <div className="sidebarSocial d-flex justify-content-center align-items-center">
           <i className="sidebarIcon fa-brands fa-square-facebook"></i>
           <i className="sidebarIcon fa-brands fa-square-twitter"></i>
           <i className="sidebarIcon fa-brands fa-square-pinterest"></i>

@@ -1,18 +1,12 @@
 .sidebar {
-  flex: 3;
   margin: 20px;
   padding-bottom: 30px;
   background-color: #fdfbfb;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
 }
 
 .sidebarItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .sidebarTitle {
@@ -54,9 +48,6 @@
 .sidebarSocial {
   margin-top: 15px;
   width: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .sidebarIcon {

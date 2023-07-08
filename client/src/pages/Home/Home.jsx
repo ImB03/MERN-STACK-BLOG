@@ -35,11 +35,11 @@ export default function Home() {
             <Paginate />
           </div>
           <div className="col">
-            <div className="row">
-              <div className="col-8">
-                <Posts posts={posts} isLoading={isLoading} />
+            <div className="row d-flex justify-content-center align-items-start">
+              <div className="col col-xl-9 mb-5">
+                <div className="container-fluid"><Posts posts={posts} isLoading={isLoading} /></div>
               </div>
-              <div className="col-4">
+              <div className="col-xl-3 d-none d-xl-flex justify-content-center align-items-start">
                 <Sidebar page={page} />
               </div>
             </div>

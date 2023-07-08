@@ -1,6 +1,6 @@
 .paginationBttns {
-  height: 40px;
   list-style: none;
+  padding: 0 !important;
 }
 
 .paginationBttns a {
