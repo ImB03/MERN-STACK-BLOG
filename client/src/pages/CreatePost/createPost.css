@@ -1,8 +1,4 @@
-.createPost {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* 
 
 .createPostWrapper {
   display: flex;
@@ -22,12 +18,6 @@
   align-items: center;
 }
 
-.createPostImg {
-  border-radius: 10px;
-  object-fit: cover;
-  width: 500px;
-  height: 400px;
-}
 
 .createPostFormGroup {
   display: flex;
@@ -58,13 +48,30 @@
   cursor: pointer;
 }
 
+
+
+.createPostText {
+  font-family: inherit;
+  font-size: 20px;
+}
+
+
+ */
+
+.createPostImg {
+  border-radius: 10px;
+  object-fit: cover;
+  width: 100%;
+  height: 400px;
+}
+
 .createPostInput {
-  font-size: 30px;
-  padding: 20px;
-  margin-bottom: 15px;
+  font-size: 20px;
+  padding: 15px;
   background-color: #f8f8f8;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-family: inherit;
 }
 
 .createPostInput::placeholder {
@@ -76,13 +83,7 @@
   outline-style: none;
 }
 
-.createPostText {
-  font-family: inherit;
-  font-size: 20px;
-}
-
 .createPostSubmit {
-  display: inline-block;
   padding: 5px 15px;
   font-size: 15px;
   cursor: pointer;
@@ -94,9 +95,7 @@
   border: none;
   border-radius: 5px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  margin-top: 10px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-left: 10px;
 }
 
 .createPostSubmit:hover {

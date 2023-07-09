@@ -17,8 +17,8 @@ export default function Home() {
   const posts = useSelector((state) => state.posts.posts);
   const isLoading = useSelector((state) => state.posts.isLoading);
 
-  const page = params.page || 1;
-  const searchQuery = params.searchQuery;
+  // const page = params.page || 1;
+  // const searchQuery = params.searchQuery;
 
   useEffect(() => {
     dispatch(ACTION_FETCH_ALL_POSTS());
@@ -37,10 +37,10 @@ export default function Home() {
           <div className="col">
             <div className="row d-flex justify-content-center align-items-start">
               <div className="col col-xl-9 mb-5">
-                <div className="container-fluid"><Posts posts={posts} isLoading={isLoading} /></div>
+                <Posts posts={posts} isLoading={isLoading} />
               </div>
               <div className="col-xl-3 d-none d-xl-flex justify-content-center align-items-start">
-                <Sidebar page={page} />
+                <Sidebar/>
               </div>
             </div>
           </div>

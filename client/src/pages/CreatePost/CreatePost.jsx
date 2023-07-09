@@ -38,18 +38,20 @@ export default function CreatePost() {
   };
 
   return (
-    <div className="createPost">
-      <div className="createPostWrapper">
-        <div className="createPostForm">
+    <div className="createPost container d-flex justify-content-center mt-5">
+      <div className="row col d-flex flex-column-reverse flex-md-row container">
+        <div className="row-5 col-md-5 mb-4 mb-md-0">
           <Image className="createPostImg" imageUrl={postData.selectedFile} />
-          <div className="createPostFormGroup">
+        </div>
+        <div className="row-7 col-md-7 mb-4 mb-md-0 d-flex flex-column justify-content-between">
+          <div className="row">
             <input
               type="text"
               placeholder="Title"
               name="title"
               value={postData.title}
               onChange={handleChange}
-              className="createPostInput"
+              className="mb-2 createPostInput"
               autoFocus={true}
             />
             <input
@@ -63,7 +65,7 @@ export default function CreatePost() {
                 });
               }}
               placeholder="Tags"
-              className="createPostInput"
+              className="mb-2 createPostInput"
               autoFocus={true}
             />
             <textarea
@@ -74,10 +76,10 @@ export default function CreatePost() {
               value={postData.description}
               onChange={handleChange}
               placeholder="Tell your story..."
-              className="createPostInput createPostText"
+              className="mb-2 createPostInput createPostText"
             />
             <FileBase
-              className="createPostInput"
+              className="mb-2 createPostInput"
               type="file"
               name="selectedFile"
               onDone={({ base64 }) =>
@@ -85,22 +87,22 @@ export default function CreatePost() {
               }
               style={{ display: "none" }}
             />
-            <div className="userAction">
-              <button
-                className="createPostSubmit"
-                type="submit"
-                onClick={handleClear}
-              >
-                Clear All
-              </button>
-              <button
-                className="createPostSubmit"
-                type="submit"
-                onClick={handleSubmit}
-              >
-                Publish
-              </button>
-            </div>
+          </div>
+          <div className="row mt-2 d-flex justify-content-md-end">
+            <button
+              className="col ms-2 me-2 createPostSubmit"
+              type="submit"
+              onClick={handleClear}
+            >
+              Clear All
+            </button>
+            <button
+              className="col ms-2 me-2 createPostSubmit"
+              type="submit"
+              onClick={handleSubmit}
+            >
+              Publish
+            </button>
           </div>
         </div>
       </div>
