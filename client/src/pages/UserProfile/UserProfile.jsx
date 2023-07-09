@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useLocation, useParams } from "react-router-dom";
 import { Avatar } from "@material-ui/core";
 
-import styles from "./userProfile.module.scss";
+import "./userProfile.css";
 import Posts from "../../components/Posts/Posts";
 import { ACTION_FETCH_ALL_POSTS } from "../../reducers/Slice/postSlice";
 import useStyles from "./styles";
@@ -37,10 +37,10 @@ export default function UserProfile() {
   }, [location]);
 
   return (
-    <div className={styles.userProfile}>
-      <div className={styles.userProfileWrapper}>
-        <div className={styles.userProfileInfo}>
-          <div className={styles.userImg}>
+    <div className="userProfile">
+      <div className="userProfileWrapper">
+        <div className="userProfileInfo">
+          <div className="userImg">
             <Avatar
               className={classes.userAvata}
               alt=""
@@ -49,39 +49,39 @@ export default function UserProfile() {
               {user?.result.name.charAt(0).toUpperCase()}
             </Avatar>
           </div>
-          <div className={styles.userInfo}>
-            <div className={styles.userName}>{user?.result.name}</div>
-            <div className={styles.userEmail}>{user?.result.email}</div>
+          <div className="userInfo">
+            <div className="userName">{user?.result.name}</div>
+            <div className="userEmail">{user?.result.email}</div>
           </div>
         </div>
-        <div className={styles.countInfo}>
-          <div className={styles.numberPost}>
+        <div className="countInfo">
+          <div className="numberPost">
             <b>{numberUserPost?.length}</b> posts
           </div>
         </div>
-        <div className={styles.editProfileAndUploadPost}>
+        <div className="editProfileAndUploadPost">
           <button
-            className={styles.buttonEditProfile}
+            className="buttonEditProfile"
             onClick={() => alert("'Will be update soon!!!'")}
           >
             <i className="far fa-edit"></i> Edit profile
           </button>
-          <Link className={styles.buttonUploadPost} to="/createpost">
+          <Link className="buttonUploadPost" to="/createpost">
             <i className="fa-solid fa-plus"></i> Upload
           </Link>
         </div>
-        <div className={styles.navbarProfile}>
+        <div className="navbarProfile">
           <div
-            className={`${styles.navbarProfileItem} ${
-              state === "Your post" && styles.isActive
+            className={`navbarProfileItem ${
+              state === "Your post" && "isActive"
             } link`}
             onClick={() => setState("Your post")}
           >
             Your post
           </div>
           <div
-            className={`${styles.navbarProfileItem} ${
-              state === "Liked" && styles.isActive
+            className={`navbarProfileItem ${
+              state === "Liked" && "isActive"
             } link`}
             onClick={() => setState("Liked")}
           >
@@ -89,7 +89,7 @@ export default function UserProfile() {
           </div>
         </div>
       </div>
-      <div className={styles.userProfileWrapper}>
+      <div className="userProfileWrapper">
         <Posts posts={getDataPosts()} isLoading={isLoading} />
       </div>
     </div>
