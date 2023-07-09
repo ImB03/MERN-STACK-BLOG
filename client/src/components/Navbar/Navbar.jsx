@@ -31,6 +31,10 @@ export default function Navbar() {
   };
 
   useEffect(() => {
+    if (location.pathname === "/auth") {
+      setShowDropdown(false);
+    }
+
     const token = user?.token;
 
     console.log("token:", token);

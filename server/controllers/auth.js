@@ -61,7 +61,7 @@ export const signin = async (req, res) => {
       { email: existingUser.email, id: existingUser._id },
       process.env.SECRET_KEY,
       {
-        expiresIn: "1h",
+        expiresIn: "20s",
       }
     );
 

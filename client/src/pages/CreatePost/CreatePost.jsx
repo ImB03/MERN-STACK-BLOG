@@ -90,14 +90,14 @@ export default function CreatePost() {
           </div>
           <div className="row mt-2 d-flex justify-content-md-end">
             <button
-              className="col ms-2 me-2 createPostSubmit"
+              className="col me-2 createPostSubmit"
               type="submit"
               onClick={handleClear}
             >
               Clear All
             </button>
             <button
-              className="col ms-2 me-2 createPostSubmit"
+              className="col ms-2 createPostSubmit"
               type="submit"
               onClick={handleSubmit}
             >

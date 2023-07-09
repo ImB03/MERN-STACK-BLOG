@@ -161,18 +161,18 @@ export default function CreatePost() {
         </div>
         <div className="row mt-2 d-flex justify-content-md-end">
           <button
-            className="col ms-2 me-2 updatePostSubmit"
+            className="col me-2 updatePostSubmit"
             type="submit"
             onClick={handleClear}
           >
             Clear All
           </button>
           <button
-            className="col ms-2 me-2 updatePostSubmit"
+            className="col ms-2 updatePostSubmit"
             type="submit"
             onClick={handleSubmit}
           >
-            Publish
+            Update
           </button>
         </div>
       </div>
