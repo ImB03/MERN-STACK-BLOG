@@ -38,8 +38,10 @@ export default function CreatePost() {
   };
 
   return (
-    <div className="createPost container d-flex justify-content-center mt-5">
-      <div className="row col d-flex flex-column-reverse flex-md-row container">
+    <div className="createPost container d-flex justify-content-center mt-5 align-items-center">
+      <div
+        className="row col d-flex flex-column-reverse flex-md-row justify-content-center container"
+      >
         <div className="row-5 col-md-5 mb-4 mb-md-0">
           <Image className="createPostImg" imageUrl={postData.selectedFile} />
         </div>

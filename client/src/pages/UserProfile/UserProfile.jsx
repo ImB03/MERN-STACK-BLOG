@@ -12,7 +12,7 @@ export default function UserProfile() {
   const location = useLocation();
   const dispatch = useDispatch();
   const classes = useStyles();
-  const [state, setState] = useState("Your post");
+  const [state, setState] = useState("Your blog");
 
   const isLoading = useSelector((state) => state.posts.isLoading);
 
@@ -24,7 +24,7 @@ export default function UserProfile() {
 
   const getDataPosts = () => {
     var userPosts;
-    if (state === "Your post") {
+    if (state === "Your blog") {
       userPosts = posts.filter((post) => user?.result?._id === post.creator);
     } else if (state === "Liked") {
       userPosts = posts.filter((post) => post?.likes.includes(post.creator));
@@ -37,59 +37,65 @@ export default function UserProfile() {
   }, [location]);
 
   return (
-    <div className="userProfile">
-      <div className="userProfileWrapper">
-        <div className="userProfileInfo">
-          <div className="userImg">
-            <Avatar
-              className={classes.userAvata}
-              alt=""
-              src={user?.result.imageUrl}
-            >
-              {user?.result.name.charAt(0).toUpperCase()}
-            </Avatar>
-          </div>
-          <div className="userInfo">
-            <div className="userName">{user?.result.name}</div>
-            <div className="userEmail">{user?.result.email}</div>
+    <div className="userProfile container mt-5">
+      <div className="userProfileWrapper row d-flex p-4 justify-content-center align-items-center">
+        <div className="userProfileInfo row d-flex mb-3 flex-column flex-md-row justify-content-center align-items-center">
+          <Avatar
+            className={`${classes.userAvata} col-md-2 row mb-3`}
+            alt=""
+            src={user?.result.imageUrl}
+          >
+            {user?.result.name.charAt(0).toUpperCase()}
+          </Avatar>
+          <div className="userInfo ms-md-4 col d-flex flex-column justify-content-center">
+            <div className="row mb-3 userName">{user?.result.name}</div>
+            <div className="row userEmail">{user?.result.email}</div>
           </div>
         </div>
-        <div className="countInfo">
+        <div className="countInfo row mb-2">
           <div className="numberPost">
-            <b>{numberUserPost?.length}</b> posts
+            <b>{numberUserPost?.length}</b> Blogs
           </div>
         </div>
-        <div className="editProfileAndUploadPost">
-          <button
-            className="buttonEditProfile"
-            onClick={() => alert("'Will be update soon!!!'")}
-          >
-            <i className="far fa-edit"></i> Edit profile
-          </button>
-          <Link className="buttonUploadPost" to="/createpost">
-            <i className="fa-solid fa-plus"></i> Upload
-          </Link>
+        <div className="editProfileAndUploadPost row d-flex mb-2">
+          <div className="col col-md-3 col-xl-2 d-flex justify-content-center align-items-center me-md-1">
+            <Link
+              className="buttonEditProfile d-flex justify-content-center align-items-center link"
+              to=""
+              onClick={() => alert("'Will be update soon!!!'")}
+            >
+              <i className="far fa-edit"></i>Edit profile
+            </Link>
+          </div>
+          <div className="col col-md-3 col-xl-2 d-flex justify-content-center align-items-center ms-md-1">
+            <Link
+              className="buttonUploadPost d-flex justify-content-center align-items-center link"
+              to="/createpost"
+            >
+              <i className="fa-solid fa-plus"></i>Upload
+            </Link>
+          </div>
         </div>
-        <div className="navbarProfile">
+        <div className="navbarProfile row d-flex mt-2">
           <div
-            className={`navbarProfileItem ${
-              state === "Your post" && "isActive"
-            } link`}
-            onClick={() => setState("Your post")}
+            className={`col col-md-1 d-flex justify-content-center align-items-center navbarProfileItem ${
+              state === "Your blog" && "isActive"
+            }`}
+            onClick={() => setState("Your blog")}
           >
-            Your post
+            Your blog
           </div>
           <div
-            className={`navbarProfileItem ${
+            className={`col col-md-1 d-flex justify-content-center align-items-center navbarProfileItem ${
               state === "Liked" && "isActive"
-            } link`}
+            }`}
             onClick={() => setState("Liked")}
           >
             Liked
           </div>
         </div>
       </div>
-      <div className="userProfileWrapper">
+      <div className="userProfileWrapper row mt-3">
         <Posts posts={getDataPosts()} isLoading={isLoading} />
       </div>
     </div>
