@@ -35,7 +35,7 @@ export default function DetailPost({ isLoading }) {
   };
 
   return (
-    <div className="container-fluid d-flex justify-content-center">
+    <div className="container mt-4 d-flex justify-content-center">
       {isLoading ? (
         <button className="iconLoading">
           <h1>
@@ -45,9 +45,9 @@ export default function DetailPost({ isLoading }) {
       ) : !post ? (
         <h1 className="detailPost notExit">"The Post Do Not Exit!!!"</h1>
       ) : (
-        <div className="detailPost d-flex">
+        <div className="detailPost col col-md-12 d-flex flex-column flex-row">
           {user?.result?._id === post?.creator && (
-            <div className="userInteract">
+            <div className="col userInteract d-flex justify-content-end">
               <Link
                 to={`/updatepost/${params}`}
                 className="detailPostIcon link"
@@ -59,51 +59,49 @@ export default function DetailPost({ isLoading }) {
               </div>
             </div>
           )}
-          <div className="detailPostWrapper">
-            <div className="detailPostInfo">
+          <div className="col detailPostWrapper d-flex flex-column-reverse flex-md-row justify-content-between">
+            <div className="col me-md-1 detailPostInfo d-flex flex-column-reverse flex-md-column justify-content-between">
               <div className="detailDesc">
                 <div className="detailPostTitle">{post?.title}</div>
                 <p className="detailPostDesc">{post?.description}</p>
               </div>
-
-              <div className="createDateAndLikes">
-                <span className="detailPostDate">
-                  {moment(post?.createdAt).fromNow()}
-                </span>
-                <button
-                  className="detailPostLikes"
-                  disabled={!user}
-                  onClick={handleLike}
-                >
-                  {post?.likes?.find((like) => like === user?.result?._id) ? (
-                    <ThumbUpAltIcon fontSize="small" />
-                  ) : (
-                    <ThumbUpAltOutlined fontSize="small" />
-                  )}
-                  {/* <i class="fa-solid fa-thumbs-up"></i> */}
-
-                  <p className="likeCount">{post?.likes?.length}</p>
-                </button>
-              </div>
-
-              <div className="detailPostAuthor">
-                <div className="avataAuthor">
-                  <Avatar
-                    alt=""
-                    src={user?.result?.imageUrl}
-                    className={classes.userAvata}
+              <div className="">
+                <div className="createDateAndLikes mb-3 d-flex justify-content-between align-items-center">
+                  <span className="detailPostDate">
+                    {moment(post?.createdAt).fromNow()}
+                  </span>
+                  <button
+                    className="detailPostLikes d-flex"
+                    disabled={!user}
+                    onClick={handleLike}
                   >
-                    {user?.result.name.charAt(0).toUpperCase()}
-                  </Avatar>
+                    {post?.likes?.find((like) => like === user?.result?._id) ? (
+                      <ThumbUpAltIcon className="me-1" fontSize="small" />
+                    ) : (
+                      <ThumbUpAltOutlined className="me-1" fontSize="small" />
+                    )}
+                    <p className="likeCount m-0">{post?.likes?.length}</p>
+                  </button>
                 </div>
-                <h3> {post?.name}</h3>
+                <div className="detailPostAuthor mb-3 d-flex align-items-center">
+                  <div className="avataAuthor">
+                    <Avatar
+                      alt=""
+                      src={user?.result?.imageUrl}
+                      className={classes.userAvata}
+                    >
+                      {user?.result.name.charAt(0).toUpperCase()}
+                    </Avatar>
+                  </div>
+                  <h4 className="mb-0 ms-2">{post?.name}</h4>
+                </div>
               </div>
             </div>
-            <div className="detailPostImage">
+            <div className="col mb-3 ms-md-1 detailPostImage d-flex justify-content-end">
               <Image className="detailPostImg" imageUrl={post?.selectedFile} />
             </div>
           </div>
-          <div className="detailPostWrapper">
+          <div className="col detailPostWrapper">
             <CommentSection post={post} />
           </div>
         </div>

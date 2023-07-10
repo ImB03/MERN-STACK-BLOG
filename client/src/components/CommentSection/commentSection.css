@@ -1,4 +1,4 @@
-.commentSection {
+/* .commentSection {
   width: 100%;
   margin-top: 40px;
 }
@@ -19,18 +19,21 @@
   margin-left: 20px;
 }
 
-.userComment {
-  flex: 6;
-  height: 300px;
-  margin-bottom: 50px;
+
+
+
+
+
+
+
+.avataUserComment {
+  margin-right: 10px;
 }
 
-.overflow {
-  overflow-y: scroll;
-}
+ */
 
-/* textarea {
-  width: 100%;
+textarea {
+  /* width: 100%; */
   height: 90px;
   padding: 12px 20px;
   box-sizing: border-box;
@@ -41,7 +44,13 @@
   outline: none;
   border: none;
   background-color: rgb(243, 240, 240);
-} */
+}
+
+.comment {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  background-color: rgb(243, 240, 240);
+}
 
 .submitButtonComment {
   display: inline-block;
@@ -60,21 +69,12 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.comment {
-  display: flex;
-  justify-self: center;
-  align-items: center;
-  margin: 20px 0px 5px;
-  padding: 10px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  min-width: 20px;
-  width: 400px;
-  background-color: rgb(243, 240, 240);
+.userComment {
+  height: 300px;
 }
 
-.avataUserComment {
-  margin-right: 10px;
+.overflow {
+  overflow-y: scroll;
 }
 
 .submitButtonComment:hover {

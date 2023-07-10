@@ -26,22 +26,20 @@ export default function CommentSection({ post }) {
     const dataComment = `${user.result.name}: ${comment}`;
     dispatch(ACTION_COMMENT_POST({ dataComment, postId: post._id }));
     setComment("");
-    commentsRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="commentSection">
+    <div className="commentSection mt-5">
       <h2>COMMENT:</h2>
-      <div className="commentWrapper">
+      <h4>{post?.comments?.length} Comments</h4>
+      <div className="commentWrapper d-flex flex-column-reverse flex-md-row justify-content-between">
         <div
-          className={
-            post?.comments?.length >= 4 ? "userComment overflow" : "userComment"
-          }
+          className={`col mb-4 me-md-2 ${
+            post?.comments?.length >= 4 ? "overflow-scroll overflow" : null
+          } userComment`}
         >
-          <h3>{post?.comments?.length} Comments</h3>
-
           {post?.comments?.map((comment, index) => (
-            <div key={index} ref={commentsRef} className="comment">
+            <div key={index} ref={commentsRef} className="comment d-flex justify-content-start align-items-center p-1 mb-2">
               <Avatar
                 className={classes.userAvata}
                 alt=""
@@ -57,7 +55,7 @@ export default function CommentSection({ post }) {
             </div>
           ))}
         </div>
-        <div className="writeComment">
+        <div className="col mb-4 ms-md-2 writeComment d-flex flex-column">
           {user ? (
             <>
               <textarea
@@ -76,7 +74,7 @@ export default function CommentSection({ post }) {
               </button>
             </>
           ) : (
-            <h3 className="">"You just login to comment!!!"</h3>
+            <h3 className="d-flex justify-content-center">"You need logged to give a comment"</h3>
           )}
         </div>
       </div>
