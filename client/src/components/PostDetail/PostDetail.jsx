@@ -35,15 +35,17 @@ export default function DetailPost({ isLoading }) {
   };
 
   return (
-    <div className="detailPost">
+    <div className="container-fluid d-flex justify-content-center">
       {isLoading ? (
         <button className="iconLoading">
           <h1>
             <i className="fa fa-circle-o-notch fa-spin"></i>
           </h1>
         </button>
-      ) : post ? (
-        <>
+      ) : !post ? (
+        <h1 className="detailPost notExit">"The Post Do Not Exit!!!"</h1>
+      ) : (
+        <div className="detailPost d-flex">
           {user?.result?._id === post?.creator && (
             <div className="userInteract">
               <Link
@@ -104,9 +106,7 @@ export default function DetailPost({ isLoading }) {
           <div className="detailPostWrapper">
             <CommentSection post={post} />
           </div>
-        </>
-      ) : (
-        <h1 className="detailPost notExit">"The Post Do Not Exit!!!"</h1>
+        </div>
       )}
     </div>
   );
