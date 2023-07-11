@@ -62,8 +62,8 @@ export default function DetailPost({ isLoading }) {
           <div className="col detailPostWrapper d-flex flex-column-reverse flex-md-row justify-content-between">
             <div className="col me-md-1 detailPostInfo d-flex flex-column-reverse flex-md-column justify-content-between">
               <div className="detailDesc">
-                <div className="detailPostTitle">{post?.title}</div>
-                <p className="detailPostDesc">{post?.description}</p>
+                <div className="detailPostTitle text-break">{post?.title}</div>
+                <p className="detailPostDesc text-break">{post?.description}</p>
               </div>
               <div className="">
                 <div className="createDateAndLikes mb-3 d-flex justify-content-between align-items-center">
