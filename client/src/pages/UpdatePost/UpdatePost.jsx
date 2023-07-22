@@ -34,7 +34,7 @@ export default function CreatePost() {
         infoUpdatePost: { ...infoUpdatePost, name: user?.result?.name },
       })
     );
-    navigate("/");
+    navigate('/');
   };
 
   const handleChange = (e) => {
@@ -110,72 +110,76 @@ export default function CreatePost() {
     //   </form>
     // </div>
     <div className="updatePost container d-flex justify-content-center mt-5">
-    <div className="row col d-flex flex-column-reverse flex-md-row container">
-      <div className="row-5 col-md-5 mb-4 mb-md-0">
-        <Image className="updatePostImg" imageUrl={infoUpdatePost.selectedFile} />
-      </div>
-      <div className="row-7 col-md-7 mb-4 mb-md-0 d-flex flex-column justify-content-between">
-        <div className="row">
-          <input
-            type="text"
-            placeholder="Title"
-            name="title"
-            value={infoUpdatePost.title}
-            onChange={handleChange}
-            className="mb-2 updatePostInput"
-            autoFocus={true}
-          />
-          <input
-            type="text"
-            name="tags"
-            value={infoUpdatePost.tags}
-            onChange={(e) => {
-              setInfoUpdatePost({
-                ...infoUpdatePost,
-                tags: e.target.value.split(","),
-              });
-            }}
-            placeholder="Tags"
-            className="mb-2 updatePostInput"
-            autoFocus={true}
-          />
-          <textarea
-            type="text"
-            rows="4"
-            cols="5"
-            name="description"
-            value={infoUpdatePost.description}
-            onChange={handleChange}
-            placeholder="Tell your story..."
-            className="mb-2 updatePostInput updatePostText"
-          />
-          <FileBase
-            className="mb-2 updatePostInput"
-            type="file"
-            name="selectedFile"
-            onDone={({ base64 }) =>
-              setInfoUpdatePost({ ...infoUpdatePost, selectedFile: base64 })
-            }
-            style={{ display: "none" }}
+      <div className="row col d-flex flex-column-reverse flex-md-row container">
+        <div className="row-5 col-md-5 mb-4 mb-md-0">
+          <Image
+            className="updatePostImg"
+            imageUrl={infoUpdatePost.selectedFile}
           />
         </div>
-        <div className="row mt-2 d-flex justify-content-md-end">
-          <button
-            className="col me-2 updatePostSubmit"
-            type="submit"
-            onClick={handleClear}
-          >
-            Clear All
-          </button>
-          <button
-            className="col ms-2 updatePostSubmit"
-            type="submit"
-            onClick={handleSubmit}
-          >
-            Update
-          </button>
+        <div className="row-7 col-md-7 mb-4 mb-md-0 d-flex flex-column justify-content-between">
+          <div className="row">
+            <input
+              type="text"
+              placeholder="Title"
+              name="title"
+              value={infoUpdatePost.title}
+              onChange={handleChange}
+              className="mb-2 updatePostInput"
+              autoFocus={true}
+            />
+            <input
+              type="text"
+              name="tags"
+              value={infoUpdatePost.tags}
+              onChange={(e) => {
+                setInfoUpdatePost({
+                  ...infoUpdatePost,
+                  tags: e.target.value.split(","),
+                });
+              }}
+              placeholder="Tags"
+              className="mb-2 updatePostInput"
+              autoFocus={true}
+            />
+            <textarea
+              type="text"
+              rows="4"
+              cols="5"
+              name="description"
+              value={infoUpdatePost.description}
+              onChange={handleChange}
+              placeholder="Tell your story..."
+              className="mb-2 updatePostInput updatePostText"
+            />
+            <FileBase
+              className="mb-2 updatePostInput"
+              type="file"
+              name="selectedFile"
+              onDone={({ base64 }) =>
+                setInfoUpdatePost({ ...infoUpdatePost, selectedFile: base64 })
+              }
+              style={{ display: "none" }}
+            />
+          </div>
+          <div className="row mt-2 d-flex justify-content-md-end">
+            <button
+              className="col me-2 updatePostSubmit"
+              type="submit"
+              onClick={handleClear}
+            >
+              Clear All
+            </button>
+            <button
+              className="col ms-2 updatePostSubmit"
+              type="submit"
+              onClick={handleSubmit}
+            >
+              Update
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>  );
+  );
 }

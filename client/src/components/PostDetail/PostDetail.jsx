@@ -43,7 +43,7 @@ export default function DetailPost({ isLoading }) {
           </h1>
         </button>
       ) : !post ? (
-        <h1 className="detailPost notExit">"The Post Do Not Exit!!!"</h1>
+        <h1 className="detailPost notExit">"The Blog Do Not Exit!!!"</h1>
       ) : (
         <div className="detailPost col col-md-12 d-flex flex-column flex-row">
           {user?.result?._id === post?.creator && (
