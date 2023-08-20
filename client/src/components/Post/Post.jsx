@@ -21,8 +21,8 @@ export default function Post({ post }) {
           <div className="col postDate">{moment(post.createdAt).fromNow()}</div>
         </div>
         <div className="infoCreator2 row d-flex flex-column justify-content-center align-items-center">
-          <div className="col postTags d-flex justify-content-start align-items-center">
-            <div className="postTag">{post.tags.map((tag) => `#${tag} `)}</div>
+          <div className="col postTags overflow-hidden">
+            {post.tags.map((tag) => `#${tag} `)}
           </div>
           <div className="col postTitle overflow-hidden">{post.title}</div>
           <div className="col postDescription overflow-hidden">
