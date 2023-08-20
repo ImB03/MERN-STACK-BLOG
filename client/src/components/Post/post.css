@@ -60,6 +60,11 @@
   font-size: 11px;
   color: #be9656;
   /* width: 100%; */
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
 }
 
 .postTitle {
